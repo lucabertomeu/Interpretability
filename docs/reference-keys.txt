@@ -1,3 +1,12 @@
-down-the-rabbit-hole
+interpretability
+taxonomy-of-interpretability-methods
+scope-of-interpretability
+algorithm-transparency
+global-holistic-model-interpretability
+global-model-interpretability-on-a-modular-level
+local-interpretability-for-a-single-prediction
+local-interpretability-for-a-group-of-predictions
+evaluation-of-interpretability
 the-pool-of-tears
 a-caucus-race-and-a-long-tale
+chapter-4

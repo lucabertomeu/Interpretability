@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Summary Interpretable Machine Learning</title>
-  <meta name="description" content="Summary Interpretable Machine Learning" />
+  <title>Interpretable Machine Learning</title>
+  <meta name="description" content="Interpretable Machine Learning" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Summary Interpretable Machine Learning" />
+  <meta property="og:title" content="Interpretable Machine Learning" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Summary Interpretable Machine Learning" />
+  <meta name="twitter:title" content="Interpretable Machine Learning" />
   
   
   
@@ -24,7 +24,6 @@
 <meta name="author" content="Luca Bertomeu" />
 
 
-<meta name="date" content="2021-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -73,9 +72,22 @@
 <li><a href="./">Summary_interpretability</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Down the rabbit-hole</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Interpretability</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#taxonomy-of-interpretability-methods"><i class="fa fa-check"></i><b>1.1</b> Taxonomy of Interpretability Methods</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#scope-of-interpretability"><i class="fa fa-check"></i><b>1.2</b> Scope of interpretability</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#algorithm-transparency"><i class="fa fa-check"></i><b>1.2.1</b> Algorithm transparency</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#global-holistic-model-interpretability"><i class="fa fa-check"></i><b>1.2.2</b> Global, Holistic Model Interpretability</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#global-model-interpretability-on-a-modular-level"><i class="fa fa-check"></i><b>1.2.3</b> Global Model Interpretability on a Modular Level</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#local-interpretability-for-a-single-prediction"><i class="fa fa-check"></i><b>1.2.4</b> Local Interpretability for a Single Prediction</a></li>
+<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#local-interpretability-for-a-group-of-predictions"><i class="fa fa-check"></i><b>1.2.5</b> Local Interpretability for a Group of Predictions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#evaluation-of-interpretability"><i class="fa fa-check"></i><b>1.3</b> Evaluation of interpretability</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>2</b> The pool of tears</a></li>
 <li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale</a></li>
+<li class="chapter" data-level="4" data-path="chapter-4.html"><a href="chapter-4.html"><i class="fa fa-check"></i><b>4</b> Chapter 4</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -87,7 +99,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Summary Interpretable Machine Learning</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interpretable Machine Learning</a>
           </h1>
         </div>
 
@@ -96,13 +108,69 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Summary Interpretable Machine Learning</h1>
+<h1 class="title">Interpretable Machine Learning</h1>
 <p class="author"><em>Luca Bertomeu</em></p>
-<p class="date"><em>2021-12-06</em></p>
 </div>
-<div id="down-the-rabbit-hole" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Down the rabbit-hole</h1>
+<div id="interpretability" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Interpretability</h1>
+<p>If a machine learning model performs well, why do we not just trust the model and ignore why it made a certain decision? “The problem is that a single metric, such as classification accuracy, is an incomplete description of most real-world tasks.”</p>
+<p>When it comes to predictive modeling, you have to make a trade-off: Do you just want to know what is predicted or do you want to know why the prediction was made and possibly pay for the interpretability with a drop in predictive performance? In some cases, you do not care why a decision was made, it is enough to know that the predictive performance on a test dataset was good. But in other cases, knowing the ‘why’ can help you learn more about the problem, the data and the reason why a model might fail.</p>
+<p>Some models may not require explanations because they are used in a low-risk environment, meaning a mistake will not have serious consequences, (e.g. a movie recommender system). The need for interpretability arises from an incompleteness in problem formalization, which means that for certain problems or tasks it is not enough to get the prediction (the what). The model must also explain how it came to the prediction (the why), because a correct prediction only partially solves your original problem.</p>
+<div id="taxonomy-of-interpretability-methods" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Taxonomy of Interpretability Methods</h2>
+<p>Methods for machine learning interpretability can be classified according to various criteria.</p>
+<p><strong>Intrinsic or post hoc?</strong></p>
+<p>This criteria distinguishes whether interpretability is achieved by restricting the complexity of the machine learning model (intrinsic) or by applying methods that analyze the model after training (post hoc).</p>
+<ul>
+<li><p>Intrinsic interpretability refers to machine learning models that are considered interpretable due to their simple structure, such as short decision trees or sparse linear models.</p></li>
+<li><p>Post hoc interpretability refers to the application of interpretation methods after model training. Permutation feature importance is, for example, a post hoc interpretation method. Post hoc methods can also be applied to intrinsically interpretable models. For example, permutation feature importance can be computed for decision trees.</p></li>
+</ul>
+<p><strong>Model-specific or model-agnostic?</strong></p>
+<p>Model-specific interpretation tools are limited to specific model classes. The interpretation of regression weights in a linear model is a model-specific interpretation, since – by definition – the interpretation of intrinsically interpretable models is always model-specific. Tools that only work for the interpretation of e.g. neural networks are model-specific.</p>
+<p>Model-agnostic tools can be used on any machine learning model and are applied after the model has been trained (post hoc). These agnostic methods usually work by analyzing feature input and output pairs. By definition, these methods cannot have access to model internals such as weights or structural information.</p>
+<p><strong>Local or global?</strong></p>
+<p>Does the interpretation method explain an individual prediction or the entire model behavior? Or is the scope somewhere in between?</p>
+</div>
+<div id="scope-of-interpretability" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Scope of interpretability</h2>
+<p>An algorithm trains a model that produces the predictions. Each step can be evaluated in terms of transparency or interpretability.</p>
+<div id="algorithm-transparency" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Algorithm transparency</h3>
+<p><em>How does the algorithm create the model?</em></p>
+<p>Algorithm transparency is about how the algorithm learns a model from the data and what kind of relationships it can learn. If you use convolutional neural networks to classify images, you can explain that the algorithm learns edge detectors and filters on the lowest layers. This is an understanding of how the algorithm works, but not for the specific model that is learned in the end, and not for how individual predictions are made. Algorithm transparency only requires knowledge of the algorithm and not of the data or learned model.</p>
+<p>Algorithms such as the least squares method for linear models are well studied and understood. They are characterized by a high transparency. Deep learning approaches (pushing a gradient through a network with millions of weights) are less well understood and the inner workings are the focus of ongoing research. They are considered less transparent.</p>
+</div>
+<div id="global-holistic-model-interpretability" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Global, Holistic Model Interpretability</h3>
+<p><em>How does the trained model make predictions?</em></p>
+<p>To explain the global model output, you need the trained model, knowledge of the algorithm and the data. This level of interpretability is about understanding how the model makes decisions, based on a holistic view of its features and each of the learned components such as weights, other parameters, and structures. Global model interpretability is very difficult to achieve in practice. Any feature space with more than 3 dimensions is simply inconceivable for humans. Usually, when people try to comprehend a model, they consider only parts of it, such as the weights in linear models.</p>
+</div>
+<div id="global-model-interpretability-on-a-modular-level" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Global Model Interpretability on a Modular Level</h3>
+<p><em>How do parts of the model affect predictions?</em></p>
+<p>While global model interpretability is usually out of reach, there is a good chance of understanding at least some models on a modular level. Not all models are interpretable at a parameter level. For linear models, the interpretable parts are the weights, for trees it would be the splits (selected features plus cut-off points) and leaf node predictions. Linear models, for example, look like as if they could be perfectly interpreted on a modular level, but the interpretation of a single weight is interlocked with all other weights. The interpretation of a single weight always comes with the footnote that the other input features remain at the same value, which is not the case with many real applications. The weights only make sense in the context of the other features in the model. But the weights in a linear model can still be interpreted better than the weights of a deep neural network.</p>
+</div>
+<div id="local-interpretability-for-a-single-prediction" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Local Interpretability for a Single Prediction</h3>
+<p><em>Why did the model make a certain prediction for an instance?</em></p>
+<p>You can zoom in on a single instance and examine what the model predicts for this input, and explain why. If you look at an individual prediction, the behavior of the otherwise complex model might behave more pleasantly. Locally, the prediction might only depend linearly or monotonically on some features, rather than having a complex dependence on them.</p>
+</div>
+<div id="local-interpretability-for-a-group-of-predictions" class="section level3" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Local Interpretability for a Group of Predictions</h3>
+<p><em>Why did the model make specific predictions for a group of instances?</em></p>
+<p>Model predictions for multiple instances can be explained either with global model interpretation methods (on a modular level) or with explanations of individual instances. The global methods can be applied by taking the group of instances, treating them as if the group were the complete dataset, and using the global methods with this subset. The individual explanation methods can be used on each instance and then listed or aggregated for the entire group.</p>
+</div>
+</div>
+<div id="evaluation-of-interpretability" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Evaluation of interpretability</h2>
+<p><strong>Three main levels</strong> for the evaluation of interpretability:</p>
+<ul>
+<li><p><strong>Application level evaluation (real task):</strong> Put the explanation into the product and have it tested by the end user. Imagine fracture detection software with a machine learning component that locates and marks fractures in X-rays. At the application level, radiologists would test the fracture detection software directly to evaluate the model.</p></li>
+<li><p><strong>Human level evaluation (simple task)</strong> is a simplified application level evaluation. The difference is that these experiments are not carried out with the domain experts, but with laypersons. This makes experiments cheaper (especially if the domain experts are radiologists) and it is easier to find more testers. An example would be to show a user different explanations and the user would choose the best one.</p></li>
+<li><p><strong>Function level evaluation (proxy task)</strong> does not require humans. This works best when the class of model used has already been evaluated by someone else in a human level evaluation. For example, it might be known that the end users understand decision trees. In this case, a proxy for explanation quality may be the depth of the tree. Shorter trees would get a better explainability score. It would make sense to add the constraint that the predictive performance of the tree remains good and does not decrease too much compared to a larger tree.</p></li>
+</ul>
 
+</div>
 </div>
             </section>
 
