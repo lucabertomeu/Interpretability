@@ -1,7 +1,6 @@
 --- 
-title: "Summary Interpretable Machine Learning"
+title: "Interpretable Machine Learning"
 author: "Luca Bertomeu"
-date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
