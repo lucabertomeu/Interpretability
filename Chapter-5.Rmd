@@ -1,0 +1,45 @@
+# Local Model-Agnostic Methods
+
+**Local interpretation methods explain individual predictions.** In this chapter, you will learn about the following local explanation methods:
+
+* **Individual conditional expectation curves** are the building blocks for partial dependence plots and describe how changing a feature changes the prediction.
+
+* **Local surrogate models (LIME)** explains a prediction by replacing the complex model with a locally interpretable surrogate model.
+
+* **Scoped rules (anchors)** are rules that describe which feature values anchor a prediction, in the sense that they lock the prediction in place.
+
+**Counterfactual explanations** explain a prediction by examining which features would need to be changed to achieve a desired prediction.
+
+**Shapley values** is an attribution method that fairly assigns the prediction to individual features.
+
+**SHAP** is another computation method for Shapley values, but also proposes global interpretation methods based on combinations of Shapley values across the data.
+
+## Individual Conditional Expectation (ICE)
+
+Individual Conditional Expectation (ICE) plots display one line per instance that shows how the instance’s prediction changes when a feature changes.
+
+An ICE plot *visualizes the dependence of the prediction on a feature for each instance separately*, resulting in one line per instance, compared to one line overall in partial dependence plots. A PDP is the average of the lines of an ICE plot. The values for a line (and one instance) can be computed by keeping all other features the same, creating variants of this instance by replacing the feature’s value with values from a grid and making predictions with the black box model for these newly created instances. The result is a set of points for an instance with the feature value from the grid and the respective predictions.
+
+What is the point of looking at individual expectations instead of partial dependencies? Partial dependence plots can obscure a heterogeneous relationship created by interactions. PDPs can show you what the average relationship between a feature and the prediction looks like. This only works well if the interactions between the features for which the PDP is calculated and the other features are weak. In case of interactions, the ICE plot will provide much more insight.
+
+### Examples
+
+Let’s go back to the cervical cancer dataset and see how the prediction of each instance is associated with the feature “Age”. We will analyze a random forest that predicts the probability of cancer for a woman given risk factors. In the partial dependence plot we have seen that the cancer probability increases around the age of 50, but is this true for every woman in the dataset? The ICE plot reveals that for most women the age effect follows the average pattern of an increase at age 50, but there are some exceptions: For the few women that have a high predicted probability at a young age, the predicted cancer probability does not change much with age.
+
+```{r pressure, echo=FALSE, fig.cap="", out.width = '50%'}
+knitr::include_graphics("~/Desktop/Interpretability/Topic 5 pics/1.png")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

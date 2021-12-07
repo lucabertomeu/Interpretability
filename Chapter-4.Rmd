@@ -1,0 +1,19 @@
+# Global Model-Agnostic Methods
+
+**Global methods describe the average behavior of a machine learning model.** 
+
+## Partial Dependence Plot (PDP)
+
+ A partial dependence plot can show whether the relationship between the target and a feature is linear, monotonic or more complex. For example, when applied to a linear regression model, partial dependence plots always show a linear relationship. The partial dependence function for regression is defined as:
+ 
+$\hat{f}_S(x_S)=E_{X_C}\left[\hat{f}(x_S,X_C)\right]=\int\hat{f}(x_S,X_C)d\mathbb{P}(X_C)$
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 

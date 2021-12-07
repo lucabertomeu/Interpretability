@@ -7,6 +7,7 @@ global-model-interpretability-on-a-modular-level
 local-interpretability-for-a-single-prediction
 local-interpretability-for-a-group-of-predictions
 evaluation-of-interpretability
-the-pool-of-tears
-a-caucus-race-and-a-long-tale
-chapter-4
+interpretable-models
+model-agnostic-methods
+global-model-agnostic-methods
+local-model-agnostic-methods
